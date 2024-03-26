@@ -11,7 +11,7 @@ using UnityEngine;
 using UnityGameFramework.Editor;
 using UnityGameFramework.Editor.ResourceTools;
 
-namespace StarForce.Editor
+namespace Game.Editor
 {
     public static class GameFrameworkConfigs
     {

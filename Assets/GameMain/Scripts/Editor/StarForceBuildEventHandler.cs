@@ -11,7 +11,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityGameFramework.Editor.ResourceTools;
 
-namespace StarForce.Editor
+namespace Game.Editor
 {
     public sealed class StarForceBuildEventHandler : IBuildEventHandler
     {
