@@ -1,5 +1,37 @@
 # GF_HybridCLR
 GameFramework+HybridCLR
+
+## 工程结构
+![ProjectSturcture](E:\Demo\GF_HybridCLR\README\ProjectSturcture.png)
+Editor:	项目外工具包
+-ResourceRuleEditor	AB包体配置工具
+-BuildScript	打包对应平台工具
+-CopyFilesToStreamingAssets	拷贝ab包资源到StreamAssets
+-MsvcStdextWorkaround	
+-PlayMainSceneFirst	启动场景列表中第一个场景
+Game
+-Configs	工程相关配置文件夹
+-DataTables	项目内数据配表文件夹
+-Entities	Entities预制体文件夹
+-Fonts	字体文件夹	
+-HybridCLR	热更新程序集文件夹
+-Libraries	项目相关插件文件夹
+-Localization	多语言配置文件夹
+-Materials	材质文件夹
+-Meshes	网格文件夹
+-Music	音频文件夹
+-Other	其他
+-Scenes	场景文件夹
+-Scripts	脚本文件夹
+--Base	项目基础代码
+--Editor	项目相关工具
+--Hotfix	可热更代码文件夹
+-Sounds	音效文件夹
+-Textures 纹理文件夹
+-UI	UI相关预制体文件夹
+GameFramework	框架相关文件夹
+Resources	包体内资源文件
+
 ## GameFramework 流程状态梳理
 **ProcedureLaunch(入口流程):**
 1.构建BuildInfo数据(游戏版本,远端资源目录).
@@ -62,5 +94,16 @@ GameFramework+HybridCLR
 
 ### 资源加载流程
 
+
+
 ### 资源打包步骤
 
+![Build](E:\Demo\GF_HybridCLR\README\Build.png)
+
+
+
+![ResourceRuleEditorEntry](E:\Demo\GF_HybridCLR\README\ResourceRuleEditorEntry.png)
+
+
+
+![ResourceRuleEditor](E:\Demo\GF_HybridCLR\README\ResourceRuleEditor.png)
