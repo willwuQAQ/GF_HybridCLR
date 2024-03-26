@@ -5,6 +5,9 @@ using UnityGameFramework.Runtime;
 
 namespace Game
 {
+    /// <summary>
+    /// 资源列表更新
+    /// </summary>
     public class ProcedureVersionUpdate : ProcedureBase
     {
         private bool m_UpdateVersionComplete = false;

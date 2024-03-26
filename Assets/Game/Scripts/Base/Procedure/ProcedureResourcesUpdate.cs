@@ -40,6 +40,7 @@ namespace Game
             GameEntry.Event.Subscribe(ResourceUpdateSuccessEventArgs.EventId, OnResourceUpdateSuccess);
             GameEntry.Event.Subscribe(ResourceUpdateFailureEventArgs.EventId, OnResourceUpdateFailure);
 
+            //当前网络是否是运营商网络
             if (Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork)
             {
                 GameEntry.BuiltinData.OpenDialog(new DialogParams

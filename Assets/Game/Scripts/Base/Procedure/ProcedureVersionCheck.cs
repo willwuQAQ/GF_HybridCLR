@@ -96,7 +96,8 @@ namespace Game
                 return;
             }
 
-            Log.Info("Latest game version is '{0} ({1})', local game version is '{2} ({3})'.", m_VersionInfo.LatestGameVersion, m_VersionInfo.InternalGameVersion.ToString(), Version.GameVersion, Version.InternalGameVersion.ToString());
+            Log.Info("Latest game version is '{0} ({1})', local game version is '{2} ({3})'.", m_VersionInfo.LatestGameVersion, 
+                m_VersionInfo.InternalGameVersion.ToString(), Version.GameVersion, Version.InternalGameVersion.ToString());
 
             if (m_VersionInfo.ForceUpdateGame)
             {
@@ -119,6 +120,7 @@ namespace Game
             GameEntry.Resource.UpdatePrefixUri = Utility.Path.GetRegularPath(m_VersionInfo.UpdatePrefixUri);
 
             m_CheckVersionComplete = true;
+            //对比本地GameFrameworkVersion中InternalResourceVersion参数 不相同则需要更新
             m_NeedUpdateVersion = GameEntry.Resource.CheckVersionList(m_VersionInfo.InternalResourceVersion) == CheckVersionListResult.NeedUpdate;
         }
 

@@ -5,6 +5,9 @@ using UnityGameFramework.Runtime;
 
 namespace Game
 {
+    /// <summary>
+    /// 资源列表校验
+    /// </summary>
     public class ProcedureResourcesVerify : ProcedureBase
     {
         private bool m_VerifyResourcesComplete = false;
