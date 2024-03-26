@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b93107d7bc31740838a156d99e161c, type: 3}
+  m_Name: ResourceRuleEditor
+  m_EditorClassIdentifier: 
+  rules:
+  - valid: 1
+    name: Configs
+    variant: 
+    fileSystem: 
+    groups: Base
+    assetsDirectoryPath: Assets/Game/Configs
+    loadType: 0
+    packed: 0
+    filterType: 0
+    searchPatterns: '*.*'
+  - valid: 1
+    name: DataTables
+    variant: 
+    fileSystem: 
+    groups: Base
+    assetsDirectoryPath: Assets/Game/DataTables
+    loadType: 0
+    packed: 0
+    filterType: 0
+    searchPatterns: '*.*'
+  - valid: 1
+    name: Entities
+    variant: 
+    fileSystem: 
+    groups: Base
+    assetsDirectoryPath: Assets/Game/Entities
+    loadType: 0
+    packed: 0
+    filterType: 0
+    searchPatterns: '*.*'
+  - valid: 1
+    name: Fonts
+    variant: 
+    fileSystem: 
+    groups: Base
+    assetsDirectoryPath: Assets/Game/Fonts
+    loadType: 0
+    packed: 0
+    filterType: 0
+    searchPatterns: '*.*'
+  - valid: 1
+    name: AOT
+    variant: 
+    fileSystem: 
+    groups: Base
+    assetsDirectoryPath: Assets/Game/HybridCLR/Dlls
+    loadType: 0
+    packed: 0
+    filterType: 0
+    searchPatterns: '*.*'
+  - valid: 1
+    name: Localization
+    variant: 
+    fileSystem: 
+    groups: Base
+    assetsDirectoryPath: Assets/Game/Localization
+    loadType: 0
+    packed: 0
+    filterType: 0
+    searchPatterns: '*.*'
+  - valid: 1
+    name: Materials
+    variant: 
+    fileSystem: 
+    groups: Base
+    assetsDirectoryPath: Assets/Game/Materials
+    loadType: 0
+    packed: 0
+    filterType: 0
+    searchPatterns: '*.*'
+  - valid: 1
+    name: Meshes
+    variant: 
+    fileSystem: 
+    groups: Base
+    assetsDirectoryPath: Assets/Game/Meshes
+    loadType: 0
+    packed: 0
+    filterType: 0
+    searchPatterns: '*.*'
+  - valid: 1
+    name: Music
+    variant: 
+    fileSystem: 
+    groups: Base
+    assetsDirectoryPath: Assets/Game/Music
+    loadType: 0
+    packed: 0
+    filterType: 0
+    searchPatterns: '*.*'
+  - valid: 1
+    name: Music
+    variant: 
+    fileSystem: 
+    groups: Base
+    assetsDirectoryPath: Assets/Game/Music
+    loadType: 0
+    packed: 0
+    filterType: 0
+    searchPatterns: '*.*'
+  - valid: 1
+    name: Scenes
+    variant: 
+    fileSystem: 
+    groups: Base
+    assetsDirectoryPath: Assets/Game/Scenes
+    loadType: 0
+    packed: 0
+    filterType: 0
+    searchPatterns: '*.*'
+  - valid: 1
+    name: Sounds
+    variant: 
+    fileSystem: 
+    groups: Base
+    assetsDirectoryPath: Assets/Game/Sounds
+    loadType: 0
+    packed: 0
+    filterType: 0
+    searchPatterns: '*.*'
+  - valid: 1
+    name: Textures
+    variant: 
+    fileSystem: 
+    groups: Base
+    assetsDirectoryPath: Assets/Game/Textures
+    loadType: 0
+    packed: 0
+    filterType: 0
+    searchPatterns: '*.*'
+  - valid: 1
+    name: UI
+    variant: 
+    fileSystem: 
+    groups: Base
+    assetsDirectoryPath: Assets/Game/UI
+    loadType: 0
+    packed: 0
+    filterType: 0
+    searchPatterns: '*.*'
+  - valid: 1
+    name: Other
+    variant: 
+    fileSystem: 
+    groups: Base
+    assetsDirectoryPath: Assets/Game/Other
+    loadType: 0
+    packed: 0
+    filterType: 0
+    searchPatterns: '*.*'
