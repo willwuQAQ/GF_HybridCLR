@@ -4,11 +4,13 @@ using GameFramework.Localization;
 using GameFramework.Procedure;
 using GameFramework.Resource;
 using UnityGameFramework.Runtime;
+using GameFramework.UI;
 
 namespace Game
 {
     public class ProcedureLaunch : ProcedureBase
     {
+
         protected override void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
             base.OnEnter(procedureOwner);
@@ -28,6 +30,8 @@ namespace Game
             // 默认字典：加载默认字典文件 Assets/Game/Configs/Runtime/DefaultDictionary.xml
             // 此字典文件记录了资源更新前使用的各种语言的字符串，会随 App 一起发布，故不可更新
             GameEntry.BuiltinData.InitDefaultDictionary();
+
+            UIExtension.OpenUIInitForm(GameEntry.UI);
         }
 
         protected override void OnUpdate(IFsm<IProcedureManager> procedureOwner, float elapseSeconds, float realElapseSeconds)
@@ -67,11 +71,11 @@ namespace Game
             }
 
             Language language = GameEntry.Localization.Language;
-            if (GameEntry.Setting.HasSetting(Constant.Setting.Language))
+            if (GameEntry.Setting.HasSetting(Game.Constant.Setting.Language))
             {
                 try
                 {
-                    string languageString = GameEntry.Setting.GetString(Constant.Setting.Language);
+                    string languageString = GameEntry.Setting.GetString(Game.Constant.Setting.Language);
                     language = (Language)Enum.Parse(typeof(Language), languageString);
                 }
                 catch
@@ -87,7 +91,7 @@ namespace Game
                 // 若是暂不支持的语言，则使用英语
                 language = Language.English;
 
-                GameEntry.Setting.SetString(Constant.Setting.Language, language.ToString());
+                GameEntry.Setting.SetString(Game.Constant.Setting.Language, language.ToString());
                 GameEntry.Setting.Save();
             }
 
@@ -133,12 +137,12 @@ namespace Game
 
         private void InitSoundSettings()
         {
-            GameEntry.Sound.Mute("Music", GameEntry.Setting.GetBool(Constant.Setting.MusicMuted, false));
-            GameEntry.Sound.SetVolume("Music", GameEntry.Setting.GetFloat(Constant.Setting.MusicVolume, 0.3f));
-            GameEntry.Sound.Mute("Sound", GameEntry.Setting.GetBool(Constant.Setting.SoundMuted, false));
-            GameEntry.Sound.SetVolume("Sound", GameEntry.Setting.GetFloat(Constant.Setting.SoundVolume, 1f));
-            GameEntry.Sound.Mute("UISound", GameEntry.Setting.GetBool(Constant.Setting.UISoundMuted, false));
-            GameEntry.Sound.SetVolume("UISound", GameEntry.Setting.GetFloat(Constant.Setting.UISoundVolume, 1f));
+            GameEntry.Sound.Mute("Music", GameEntry.Setting.GetBool(Game.Constant.Setting.MusicMuted, false));
+            GameEntry.Sound.SetVolume("Music", GameEntry.Setting.GetFloat(Game.Constant.Setting.MusicVolume, 0.3f));
+            GameEntry.Sound.Mute("Sound", GameEntry.Setting.GetBool(Game.Constant.Setting.SoundMuted, false));
+            GameEntry.Sound.SetVolume("Sound", GameEntry.Setting.GetFloat(Game.Constant.Setting.SoundVolume, 1f));
+            GameEntry.Sound.Mute("UISound", GameEntry.Setting.GetBool(Game.Constant.Setting.UISoundMuted, false));
+            GameEntry.Sound.SetVolume("UISound", GameEntry.Setting.GetFloat(Game.Constant.Setting.UISoundVolume, 1f));
             Log.Info("Init sound settings complete.");
         }
     }

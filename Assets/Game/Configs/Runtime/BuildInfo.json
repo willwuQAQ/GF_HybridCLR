@@ -1,7 +1,7 @@
 {
   "GameVersion": "0.1.0",
   "InternalGameVersion": 0,
-  "CheckVersionUrl": "http://192.168.2.52/ABS/Full/0_1_0_3/{0}Version.txt",
+  "CheckVersionUrl": "http://192.168.2.52/ABS/Full/0_1_0_10/{0}Version.txt",
   "WindowsAppUrl": "http://192.168.2.52",
   "MacOSAppUrl": "https://starforce.gameframework.cn",
   "IOSAppUrl": "https://starforce.gameframework.cn",

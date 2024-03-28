@@ -5,7 +5,10 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
+using Codice.Client.BaseCommands;
 using GameFramework;
+using GameFramework.Resource;
+using System;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 
@@ -17,13 +20,14 @@ namespace Game
         private TextAsset m_BuildInfoTextAsset = null;
         [SerializeField]
         private TextAsset m_DefaultDictionaryTextAsset = null;
-        [SerializeField]
-        private UpdateResourceForm m_UpdateResourceFormTemplate = null;
-        [SerializeField]
-        private NativeDialogForm m_NativeDialogFormTemplate = null;
+        //[SerializeField]
+        //private NativeDialogForm m_NativeDialogFormTemplate = null;
+        //[SerializeField]
+        //private LoadingForm m_LoadingForm = null;
 
         private BuildInfo m_BuildInfo = null;
-        private NativeDialogForm m_NativeDialogForm;
+
+        //private NativeDialogForm m_NativeDialogForm;
 
         public BuildInfo BuildInfo
         {
@@ -33,13 +37,13 @@ namespace Game
             }
         }
 
-        public UpdateResourceForm UpdateResourceFormTemplate
-        {
-            get
-            {
-                return m_UpdateResourceFormTemplate;
-            }
-        }
+        //public LoadingForm LoadingForm
+        //{
+        //    get
+        //    {
+        //        return m_LoadingForm;
+        //    }
+        //}
 
         public void InitBuildInfo()
         {
@@ -56,6 +60,7 @@ namespace Game
                 return;
             }
         }
+
 
         public void InitDefaultDictionary()
         {
@@ -76,28 +81,28 @@ namespace Game
         /// （游戏加载前）打开原生对话框。
         /// </summary>
         /// <param name="dialogParams"></param>
-        public void OpenDialog(DialogParams dialogParams)
-        {
-            if (m_NativeDialogForm == null)
-            {
-                m_NativeDialogForm = Instantiate(m_NativeDialogFormTemplate);
-            }
+        //public void OpenDialog(DialogParams dialogParams)
+        //{
+        //    if (m_NativeDialogForm == null)
+        //    {
+        //        m_NativeDialogForm = Instantiate(m_NativeDialogFormTemplate);
+        //    }
 
-            m_NativeDialogForm.OnOpen(dialogParams);
-        }
+        //    m_NativeDialogForm.OnOpen(dialogParams);
+        //}
 
         /// <summary>
         /// （游戏加载后）删除原生对话框。
         /// </summary>
-        public void DestroyDialog()
-        {
-            if (m_NativeDialogForm == null)
-            {
-                return;
-            }
+        //public void DestroyDialog()
+        //{
+        //    if (m_NativeDialogForm == null)
+        //    {
+        //        return;
+        //    }
             
-            Destroy(m_NativeDialogForm);
-            m_NativeDialogForm = null;
-        }
+        //    Destroy(m_NativeDialogForm);
+        //    m_NativeDialogForm = null;
+        //}
     }
 }

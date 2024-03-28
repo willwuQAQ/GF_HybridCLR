@@ -107,3 +107,17 @@ Resources	包体内资源文件
 
 
 ![ResourceRuleEditor](E:\Demo\GF_HybridCLR\README\ResourceRuleEditor.png)
+
+**ResourceSyncTools**
+![ResourceSyncTools](E:\Demo\GF_HybridCLR\README\ResourceSyncTools.png)
+1.移除项目中所有的AB name.
+2.通过 ResourceCollection.xml 文件将 AB Name 设置给对应的资源
+3.通过项目中AB name 生成 ResourceCollection.xml
+
+**ResourceAnalyzer**
+Asset Dependency Viewer 按钮展示 Resource 中所有 Asset，点击选择 Asset 右侧展示它依赖的 Resource、依赖的 Asset、依赖的散资源 (未被 ab 管理的)。
+
+Scattered Asset Viewer 按钮展示被依赖的散资源被哪些 Asset 依赖，只有被依赖的数目大于 1 的散资源才展示。
+
+Circular Dependency Viewer 按钮 展示项目中资源循环依赖的 ，2017 及以上版本的 Unity 已经不能资源循环依赖，5.6.7 版本的 Unity 可以。
+

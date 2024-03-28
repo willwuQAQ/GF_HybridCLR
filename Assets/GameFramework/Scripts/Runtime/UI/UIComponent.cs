@@ -73,6 +73,7 @@ namespace UnityGameFramework.Runtime
         [SerializeField]
         private UIGroup[] m_UIGroups = null;
 
+
         /// <summary>
         /// 获取界面组数量。
         /// </summary>
@@ -243,6 +244,16 @@ namespace UnityGameFramework.Runtime
                     continue;
                 }
             }
+
+            Log.Info("UIComponent init");
+        }
+
+
+
+
+        public void UIInitFormInstance()
+        {
+            
         }
 
         /// <summary>
@@ -726,5 +737,7 @@ namespace UnityGameFramework.Runtime
         {
             m_EventComponent.Fire(this, CloseUIFormCompleteEventArgs.Create(e));
         }
+
+
     }
 }

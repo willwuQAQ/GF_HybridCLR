@@ -20,7 +20,7 @@ namespace Game
         private long m_UpdateTotalCompressedLength = 0L;
         private int m_UpdateSuccessCount = 0;
         private List<UpdateLengthData> m_UpdateLengthData = new List<UpdateLengthData>();
-        private UpdateResourceForm m_UpdateResourceForm = null;
+        //private UpdateResourceForm m_UpdateResourceForm = null;
 
         protected override void OnEnter(IFsm<IProcedureManager> procedureOwner)
         {
@@ -33,7 +33,7 @@ namespace Game
             procedureOwner.RemoveData("UpdateResourceTotalCompressedLength");
             m_UpdateSuccessCount = 0;
             m_UpdateLengthData.Clear();
-            m_UpdateResourceForm = null;
+            //m_UpdateResourceForm = null;
 
             GameEntry.Event.Subscribe(ResourceUpdateStartEventArgs.EventId, OnResourceUpdateStart);
             GameEntry.Event.Subscribe(ResourceUpdateChangedEventArgs.EventId, OnResourceUpdateChanged);
@@ -43,7 +43,7 @@ namespace Game
             //当前网络是否是运营商网络
             if (Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork)
             {
-                GameEntry.BuiltinData.OpenDialog(new DialogParams
+                UIInitForm.Instance.OpenUIDialogForm(new DialogParams
                 {
                     Mode = 2,
                     Title = GameEntry.Localization.GetString("UpdateResourceViaCarrierDataNetwork.Title"),
@@ -53,7 +53,6 @@ namespace Game
                     CancelText = GameEntry.Localization.GetString("UpdateResourceViaCarrierDataNetwork.QuitButton"),
                     OnClickCancel = delegate (object userData) { UnityGameFramework.Runtime.GameEntry.Shutdown(ShutdownType.Quit); },
                 });
-
                 return;
             }
 
@@ -63,11 +62,12 @@ namespace Game
 
         protected override void OnLeave(IFsm<IProcedureManager> procedureOwner, bool isShutdown)
         {
-            if (m_UpdateResourceForm != null)
-            {
-                Object.Destroy(m_UpdateResourceForm.gameObject);
-                m_UpdateResourceForm = null;
-            }
+            //if (m_UpdateResourceForm != null)
+            //{
+            //    Object.Destroy(m_UpdateResourceForm.gameObject);
+            //    m_UpdateResourceForm = null;
+            //}
+            UIInitForm.Instance.OpenLoadingForm(false);
 
             GameEntry.Event.Unsubscribe(ResourceUpdateStartEventArgs.EventId, OnResourceUpdateStart);
             GameEntry.Event.Unsubscribe(ResourceUpdateChangedEventArgs.EventId, OnResourceUpdateChanged);
@@ -85,21 +85,21 @@ namespace Game
             {
                 return;
             }
-
+            UIInitForm.Instance.OpenLoadingForm(false);
             ChangeState<ProcedureCodeInit>(procedureOwner);
         }
 
         private void StartUpdateResources(object resourceGroupName)
         {
-            if (m_UpdateResourceForm == null)
-            {
-                m_UpdateResourceForm = Object.Instantiate(GameEntry.BuiltinData.UpdateResourceFormTemplate);
-            }
+            //if (m_UpdateResourceForm == null)
+            //{
+            //    m_UpdateResourceForm = Object.Instantiate(GameEntry.BuiltinData.UpdateResourceFormTemplate);
+            //}
 
             Log.Info("Start update resources...");
             string name = (string)(resourceGroupName);
             GameEntry.Resource.UpdateResources(name, OnUpdateResourcesComplete);
-            
+            UIInitForm.Instance.OpenLoadingForm(true);
             // bool flag = GetCurResourceGroupIsLocalComplete(name);
             // if (!flag)
             // {
@@ -110,7 +110,7 @@ namespace Game
             //     m_UpdateResourcesComplete = true;
             //     Debug.Log("资源组---"+name+"---已经下号在本地了");
             // }
-            
+
             // GameEntry.Resource.UpdateResources(OnUpdateResourcesComplete);
         }
     
@@ -144,7 +144,8 @@ namespace Game
 
             float progressTotal = (float)currentTotalUpdateLength / m_UpdateTotalCompressedLength;
             string descriptionText = GameEntry.Localization.GetString("UpdateResource.Tips", m_UpdateSuccessCount.ToString(), m_UpdateCount.ToString(), GetByteLengthString(currentTotalUpdateLength), GetByteLengthString(m_UpdateTotalCompressedLength), progressTotal.ToString("F2"), GetByteLengthString((int)GameEntry.Download.CurrentSpeed));
-            m_UpdateResourceForm.SetProgress(progressTotal, descriptionText);
+            UIInitForm.Instance.RefreshLoadingProgress(progressTotal, descriptionText);
+            //m_UpdateResourceForm.SetProgress(progressTotal, descriptionText);
         }
 
         private string GetByteLengthString(long byteLength)
