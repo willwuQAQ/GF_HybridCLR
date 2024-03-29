@@ -60,5 +60,10 @@ namespace Game.Hotfix
         {
             return Utility.Text.Format("Assets/Game/UI/UISounds/{0}.wav", assetName);
         }
+
+        public static string GetNetworkConfigAsset(string assetName, bool fromBytes)
+        {
+            return Utility.Text.Format("Assets/Game/DataTables/Network/{0}.{1}", assetName, fromBytes ? "bytes" : "json");
+        }
     }
 }

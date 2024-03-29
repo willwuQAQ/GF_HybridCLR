@@ -102,7 +102,13 @@ namespace UnityGameFramework.Runtime
                 return;
             }
 
-            m_UnityWebRequest = UnityWebRequest.Post(webRequestUri, Utility.Converter.GetString(postData));
+            m_UnityWebRequest = new UnityWebRequest(webRequestUri, UnityWebRequest.kHttpVerbPOST);
+            if (postData != null) 
+            {
+                m_UnityWebRequest.uploadHandler = new UploadHandlerRaw(postData);
+            }
+            m_UnityWebRequest.downloadHandler = new DownloadHandlerBuffer();
+            m_UnityWebRequest.SetRequestHeader("Content-Type", "application/json");
 #if UNITY_2017_2_OR_NEWER
             m_UnityWebRequest.SendWebRequest();
 #else

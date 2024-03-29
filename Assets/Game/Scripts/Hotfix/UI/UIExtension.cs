@@ -5,9 +5,11 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 
+using GameFramework;
 using GameFramework.DataTable;
 using GameFramework.UI;
 using System.Collections;
+using UnityEditor.SceneTemplate;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityGameFramework.Runtime;
@@ -16,6 +18,32 @@ namespace Game.Hotfix
 {
     public static class UIExtension
     {
+        private static Transform m_InstanceRoot;
+        public static Transform InstanceRoot
+        {
+            get
+            {
+                if (m_InstanceRoot == null)
+                {
+                    m_InstanceRoot = GameEntry.UI.transform.Find("UI Form Instances");
+                }
+                return m_InstanceRoot;
+            }
+        }
+
+        private static IUIManager m_UIManager;
+        public static IUIManager UIManager
+        {
+            get
+            {
+                if (m_UIManager == null)
+                {
+                    m_UIManager = GameFrameworkEntry.GetModule<IUIManager>();
+                }
+                return m_UIManager;
+            }
+        }
+
         public static IEnumerator FadeToAlpha(this CanvasGroup canvasGroup, float alpha, float duration)
         {
             float time = 0f;
@@ -151,6 +179,8 @@ namespace Game.Hotfix
 
             return uiComponent.OpenUIForm(assetName, drUIForm.UIGroupName, Constant.AssetPriority.UIFormAsset, drUIForm.PauseCoveredUIForm, userData);
         }
+
+
 
         public static void OpenDialog(this UIComponent uiComponent, DialogParams dialogParams)
         {

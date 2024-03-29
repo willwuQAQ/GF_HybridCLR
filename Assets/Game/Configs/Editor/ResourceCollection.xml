@@ -142,6 +142,7 @@
       <Asset Guid="e830964cdb85ff3429bca484c16bab44" ResourceName="UI" />
       <Asset Guid="e85864330b68dde498dcb6e8711815d3" ResourceName="UI" />
       <Asset Guid="eabb37cb6d738b443b398b701a64cd88" ResourceName="Textures" />
+      <Asset Guid="eee6ca934944ac545ba5fb3ccbf893e4" ResourceName="Configs" />
       <Asset Guid="f2f4df0b7211e4c42a5638273525d8ee" ResourceName="UI" />
       <Asset Guid="f2f97a713beae744181ba934f9c4113a" ResourceName="DataTables" />
       <Asset Guid="f36c72c738c55f741afcd674a0b1245f" ResourceName="Materials" />

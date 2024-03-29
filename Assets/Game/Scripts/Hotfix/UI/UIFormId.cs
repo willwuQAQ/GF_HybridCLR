@@ -33,5 +33,10 @@ namespace Game.Hotfix
         /// 关于。
         /// </summary>
         AboutForm = 102,
+
+        /// <summary>
+        /// 加载
+        /// </summary>
+        LoadingForm = 103,
     }
 }

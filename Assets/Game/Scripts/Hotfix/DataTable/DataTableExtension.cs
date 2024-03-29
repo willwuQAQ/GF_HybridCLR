@@ -32,8 +32,9 @@ namespace Game.Hotfix
                 Log.Warning("Data table name is invalid.");
                 return;
             }
-
+            //拼接序列化类名
             string dataRowClassName = DataRowClassPrefixName + splitedNames[0];
+
             Type dataRowType = Type.GetType(dataRowClassName);
             if (dataRowType == null)
             {

@@ -68,8 +68,8 @@ namespace Game.Hotfix
                 }
             }
 
-            procedureOwner.SetData<VarInt32>("NextSceneId", GameEntry.Config.GetInt("Scene.Menu"));
-            ChangeState<ProcedureChangeScene>(procedureOwner);
+            ChangeState<ProcedureLogin>(procedureOwner);
+
         }
 
         private void PreloadResources()

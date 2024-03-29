@@ -55,8 +55,23 @@ namespace Game.Hotfix
         private static void StartHotfix()
         {
             // 删除原生对话框。
-            GameEntry.BuiltinData.DestroyDialog();
+            UIInitForm.Instance.CloseUIDialogForm();
 
+            ProcedureCodeInit();
+
+            CustomGameEntryInit();
+
+            // 加载自定义组件。
+            GameEntry.Resource.LoadAsset("Assets/Game/Other/Game.prefab", new LoadAssetCallbacks(OnLoadAssetSuccess, OnLoadAssetFail));
+        }
+
+        private static void CustomGameEntryInit()
+        {
+            GameEntry.Resource.LoadAsset("Assets/Game/Other/CustomGameEntry.prefab", new LoadAssetCallbacks(OnLoadCustomGameEntrySuccess, OnLoadAssetFail));
+        }
+
+        private static void ProcedureCodeInit()
+        {
             // 重置流程组件，初始化热更新流程。
             GameEntry.Fsm.DestroyFsm<IProcedureManager>();
             var procedureManager = GameFrameworkEntry.GetModule<IProcedureManager>();
@@ -66,12 +81,10 @@ namespace Game.Hotfix
                 new ProcedureMain(),
                 new ProcedureMenu(),
                 new ProcedurePreload(),
+                new ProcedureLogin(),
             };
             procedureManager.Initialize(GameFrameworkEntry.GetModule<IFsmManager>(), procedures);
             procedureManager.StartProcedure<ProcedurePreload>();
-
-            // 加载自定义组件。
-            GameEntry.Resource.LoadAsset("Assets/Game/Other/Game.prefab", new LoadAssetCallbacks(OnLoadAssetSuccess, OnLoadAssetFail));
         }
 
         private static void OnLoadAOTDllSuccess(string assetName, object asset, float duration, object userdata)
@@ -86,6 +99,20 @@ namespace Game.Hotfix
                 StartHotfix();
             }
         }
+
+
+        private static void OnLoadCustomGameEntrySuccess(string assetName, object asset, float duration, object userdata)
+        {
+            GameObject game = UnityEngine.Object.Instantiate((GameObject)asset);
+            game.name = "CustomGameEntry";
+
+            var customGameEntry = game.GetComponentInChildren<CustomGameEntry>();
+            if (customGameEntry != null) 
+            {
+                customGameEntry.InitCustomComponent();
+            }
+        }
+
 
         private static void OnLoadAssetSuccess(string assetName, object asset, float duration, object userdata)
         {

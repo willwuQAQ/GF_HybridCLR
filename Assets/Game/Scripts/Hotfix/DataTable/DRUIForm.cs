@@ -5,10 +5,11 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2024-03-26 15:01:07.726
+// 生成时间：2024-03-27 16:50:03.503
 //------------------------------------------------------------
 
 using GameFramework;
+using LitJson;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -71,6 +72,7 @@ namespace Game.Hotfix
             get;
             private set;
         }
+
 
         public override bool ParseDataRow(string dataRowString, object userData)
         {

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using GameFramework.Resource;
 using UnityEngine;
 using UnityGameFramework.Runtime;
-using GameEntry = Game.GameEntry;
 
 namespace GameFramework.Resource
 {
