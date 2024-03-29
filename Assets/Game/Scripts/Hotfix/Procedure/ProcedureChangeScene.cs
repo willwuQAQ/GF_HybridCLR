@@ -10,7 +10,6 @@ namespace Game.Hotfix
     {
         private const int MenuSceneId = 1;
 
-        private bool m_ChangeToMenu = false;
         private bool m_IsChangeSceneComplete = false;
         private int m_BackgroundMusicId = 0;
 
@@ -44,7 +43,6 @@ namespace Game.Hotfix
             GameEntry.Base.ResetNormalGameSpeed();
 
             int sceneId = procedureOwner.GetData<VarInt32>("NextSceneId");
-            m_ChangeToMenu = sceneId == MenuSceneId;
             IDataTable<DRScene> dtScene = GameEntry.DataTable.GetDataTable<DRScene>();
             DRScene drScene = dtScene.GetDataRow(sceneId);
             if (drScene == null)
@@ -76,14 +74,7 @@ namespace Game.Hotfix
                 return;
             }
 
-            if (m_ChangeToMenu)
-            {
-                ChangeState<ProcedureMenu>(procedureOwner);
-            }
-            else
-            {
-                ChangeState<ProcedureMain>(procedureOwner);
-            }
+
         }
 
         private void OnLoadSceneSuccess(object sender, GameEventArgs e)

@@ -4,7 +4,6 @@ using UnityEngine;
 
 using System.IO;
 using UnityEditor;
-using UnityEngine;
 
 public class CopyFilesToStreamingAssets : Editor
 {

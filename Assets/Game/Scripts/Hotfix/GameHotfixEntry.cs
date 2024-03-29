@@ -78,8 +78,6 @@ namespace Game.Hotfix
             ProcedureBase[] procedures =
             {
                 new ProcedureChangeScene(),
-                new ProcedureMain(),
-                new ProcedureMenu(),
                 new ProcedurePreload(),
                 new ProcedureLogin(),
             };
