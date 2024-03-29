@@ -1,0 +1,23 @@
+{
+	"url": "http://192.168.1.222:35010/login/device_login",
+	"body": {
+		"public": {
+			"version": "1.0",
+			"lang": "pt",
+			"sig": "d20dbe94ffcf4588dcf22fa265753526b",
+			"channel": "IOS_001_HUAWEI",
+			"system_model": "SM-G8870",
+			"system_os": "Android",
+			"system_version": "10",
+			"app_version": "1.0.0",
+			"system_supported_abis": "arm64-v8a,armeabi-v7a,armeabi",
+			"network_type": "wifi",
+			"device_brand_name": "samsung",
+			"package_name": "com.BTG.PuzzleBlock",
+			"android_id": "0d1d612399330cpp8cb"
+		},
+		"params": {
+			"debug": 1
+		}
+	}
+}
